@@ -2,6 +2,25 @@ config:
   cloudflare:apiToken:
     secure: AAABAOTuSH3uXDyVshlBiloOJVqXqOd4IirUhsqV8s3Uh7v2ITHjkm6ZLbzh6x2iausKjmsbtnyqp88By0vuumHV5MzCR8dP
   routing:dns:
+    accounts:
+      name: accounts-stage
+      ttl: 1
+      type: CNAME
+      zone_id: tb.pro
+      content: accounts-stage-480311505.eu-central-1.elb.amazonaws.com
+    appointment:
+      name: appointment-stage
+      ttl: 1
+      type: CNAME
+      zone_id: tb.pro
+      content: ddoaoiz3oq6xj.cloudfront.net
+    auth:
+      name: auth-stage
+      ttl: 1
+      type: CNAME
+      zone_id: tb.pro
+      content: keycloak-stage-729873265.eu-central-1.elb.amazonaws.com
+    #mail
     send-backend:
       name: send-backend-stage
       zone_id: tb.pro
@@ -14,14 +33,5 @@ config:
       type: CNAME
       zone_id: tb.pro
       content: d1e92spar63fw7.cloudfront.net
-      # accounts:
-      #   record:
-      #     name: accounts-stage
-      #     ttl: 60
-      #     type: CNAME
-      #     zone_id: tb.pro
-      #   target:
-      #     arn: arn:aws:elasticloadbalancing:eu-central-1:768512802988:loadbalancer/app/accounts-stage/13547b0b208eabd7
-      #     kind: load_balancer
   routing:zone_ids:
     tb.pro: 65a43f25ab2055b2b9fb6dcd10321970

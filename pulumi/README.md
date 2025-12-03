@@ -8,17 +8,17 @@ This directory contains Pulumi code for managing our high-level traffic routing.
 When does a DNS record belong under the control of this project as opposed to a more application-specific code repo?
 
 - The record routes traffic to a publicly accessible endpoint intended for public use.
-- The record does not inform one private service how to communicate with another private service.
+- The record does not pertain to traffic that exists internally within a single environment.
 
 Two examples:
 
 - A record that routes users to the frontend for Send **does belong here**.
-- A convenience record that tells Send how to contact its database **does not belong here** and instead belongs with the Send code.
+- A record that tells Send in the `stage` environment how to contact the `stage` database **does not belong here** and instead belongs with the Send code.
 
 
 ## How It Works
 
-This is a very simple Pulumi program that loops over a series of config entries under the `routing:dns` label and constructs `DnsRecord` resources using Cloudflare's Pulumi provider. The keys in this dict should map to inputs accepted by the [DnsRecord Resource](https://www.pulumi.com/registry/packages/cloudflare/api-docs/dnsrecord/#inputs).
+This is a very simple Pulumi program that loops over a series of config entries under the `routing:dns` label and constructs `DnsRecord` resources using Cloudflare's Pulumi provider. The keys in this dict should map to inputs accepted by the [Cloudflare `DnsRecord` Resource](https://www.pulumi.com/registry/packages/cloudflare/api-docs/dnsrecord/#inputs).
 
 There is also a `routing:zone_ids` option in which you can list domain names mapped to their Cloudflare zone IDs. This gives us a convenience feature in which the `zone_id` option of a `DnsRecord` may be set instead to a friendlier domain name listed in this table. This prevents your listing of records from using obscure IDs that make your config harder to understand. If you do not pass a matching domain name, the value provided will be passed through untouched.
 
