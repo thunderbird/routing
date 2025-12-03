@@ -1,0 +1,23 @@
+config:
+  routing:dns:
+    send-backend:
+      record:
+        name: send-backend-stage
+        ttl: 60
+        type: CNAME
+        zone_id: tb.pro
+      target:
+        arn: arn:aws:elasticloadbalancing:eu-central-1:768512802988:loadbalancer/app/send-suite-stage-api/932d5df01011cc9c
+        kind: load_balancer
+    # accounts:
+    #   record:
+    #     name: accounts-stage
+    #     ttl: 60
+    #     type: CNAME
+    #     zone_id: tb.pro
+    #   target:
+    #     arn: arn:aws:elasticloadbalancing:eu-central-1:768512802988:loadbalancer/app/accounts-stage/13547b0b208eabd7
+    #     kind: load_balancer
+
+  routing:zone_ids:
+    tb.pro: 65a43f25ab2055b2b9fb6dcd10321970

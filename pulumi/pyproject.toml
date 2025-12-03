@@ -1,0 +1,19 @@
+[project]
+name = "routing"
+version = "0.0.1"
+description = "High level traffic routing"
+requires-python = ">=3.13"
+dynamic = ["dependencies"]
+
+[project.urls]
+repository = "https://github.com/thunderbird/routing.git"
+issues = "https://github.com/thunderbird/routing/issues"
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "ruff",
+]
