@@ -1,0 +1,3 @@
+tb_pulumi @ git+https://github.com/thunderbird/pulumi.git@v0.0.16
+boto3
+pulumi_cloudflare
