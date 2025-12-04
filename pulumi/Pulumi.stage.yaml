@@ -1,6 +1,6 @@
 config:
   cloudflare:apiToken:
-    secure: AAABAOTuSH3uXDyVshlBiloOJVqXqOd4IirUhsqV8s3Uh7v2ITHjkm6ZLbzh6x2iausKjmsbtnyqp88By0vuumHV5MzCR8dP
+    secure: AAABALMmaFhCX2X5kV9BAeLtq41t4FD6OYyALv9Zf4eI/ZxcC0QK1Y0hjkF3O11BLWfaKjoWRPe2o/NXCP1Nkdu+XpF00Xim
   routing:dns:
     accounts:
       name: accounts-stage
@@ -20,7 +20,18 @@ config:
       type: CNAME
       zone_id: tb.pro
       content: keycloak-stage-729873265.eu-central-1.elb.amazonaws.com
-    #mail
+    mail-autoconfig:
+      name: autoconfig
+      ttl: 1
+      type: CNAME
+      zone_id: stage-thundermail.com
+      content: mailstrom-stage-pub-db0b5e7d3dc1a573.elb.eu-central-1.amazonaws.com
+    mail:
+      name: mail
+      ttl: 1
+      type: CNAME
+      zone_id: stage-thundermail.com
+      content: di9wu4ekz6gs2.cloudfront.net
     send-backend:
       name: send-backend-stage
       zone_id: tb.pro
@@ -33,5 +44,7 @@ config:
       type: CNAME
       zone_id: tb.pro
       content: d1e92spar63fw7.cloudfront.net
+  routing:protect: "true"
   routing:zone_ids:
+    stage-thundermail.com: c6e8d56e54e126edb68c1e8f1bbafe49
     tb.pro: 65a43f25ab2055b2b9fb6dcd10321970

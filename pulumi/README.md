@@ -22,6 +22,8 @@ This is a very simple Pulumi program that loops over a series of config entries 
 
 There is also a `routing:zone_ids` option in which you can list domain names mapped to their Cloudflare zone IDs. This gives us a convenience feature in which the `zone_id` option of a `DnsRecord` may be set instead to a friendlier domain name listed in this table. This prevents your listing of records from using obscure IDs that make your config harder to understand. If you do not pass a matching domain name, the value provided will be passed through untouched.
 
+Finally, the `protect` option determines whether Pulumi will error and fail if it is told to delete a resource.
+
 
 ## Importing a Record
 
